@@ -1,0 +1,93 @@
+<div class="banner-image">
+</div>
+<div class="container">
+  <br>
+  <h4>Paramètres du compte</h4>
+<mat-accordion>
+
+  <mat-expansion-panel class="headers-align" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Profil
+      </mat-panel-title>
+      <mat-panel-description>
+        Contient les informations sur votre compte
+      </mat-panel-description>
+      <mat-icon color="primary">account_circle</mat-icon>
+    </mat-expansion-panel-header>
+    <mat-form-field class="form-field" appearance="fill">
+        <mat-label>Nom</mat-label>
+          <input matInput disabled value="{{ currentUser.nom }}">
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="fill">
+        <mat-label>Prenom</mat-label>
+          <input matInput disabled value="{{ currentUser.prenom }}">
+    </mat-form-field>
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label>Identifiant</mat-label>
+        <input matInput disabled value="{{ currentUser.username }}">
+    </mat-form-field>
+            <!-- <br/> -->
+
+    <mat-form-field class="form-field" appearance="fill">
+        <mat-label>Email</mat-label>
+          <input matInput disabled value="{{ currentUser.email }}">
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="fill">
+        <mat-label>Sexe</mat-label>
+          <input matInput disabled value="{{ currentUser.sexe }}">
+    </mat-form-field>
+
+    
+
+  </mat-expansion-panel>
+  <mat-expansion-panel class="headers-align" style="margin-top: 15px;"  [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+     <mat-expansion-panel-header>
+        <mat-panel-title>
+          Paramètres de sécurité
+        </mat-panel-title>
+        <mat-panel-description>
+          Contient les paramètres de votre compte
+        </mat-panel-description>
+        <mat-icon color="primary">manage_accounts</mat-icon>
+      </mat-expansion-panel-header>
+        <p>Vous pouvez changer votre mot de passe:</p>
+          <form [formGroup]="editpwForm" (submit)="submit()" #formDirective1="ngForm">
+            <mat-form-field class="form-field" appearance="outline" style="margin-top: 5px">
+              <mat-label>Mot de passe actuel</mat-label>
+              <input matInput [type]="hide1 ? 'password' : 'text'"  formControlName="passwordCurrent" required placeholder="Entrez le mot de passe actuel"/>
+              <button type="button" mat-icon-button matSuffix (click)="hide1 = !hide1" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide1">
+                <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            <mat-error *ngIf="editpwForm.controls['passwordCurrent'].errors?.required">Ce champ est obligatoire</mat-error>
+            </mat-form-field>
+
+              <mat-form-field class="form-field" appearance="outline" (input)="onPasswordInput()">
+                <mat-label> Nouveau mot de passe </mat-label>
+                <input matInput [type]="hide2 ? 'password' : 'text'" formControlName="password" required placeholder="Entrez un nouveau mot de passe"/>
+                <button type="button" mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
+                  <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              <mat-error *ngIf="editpwForm.controls['password'].errors?.required || editpwForm.controls['password'].errors?.minLength">Ce champ est obligatoire et doit contenir au moins 6 caractères</mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="form-field" appearance="outline" (input)="onPasswordInput()">
+              <mat-label> Confirmer le nouveau mot de passe </mat-label>
+              <input matInput [type]="hide3 ? 'password' : 'text'" formControlName="password2" required placeholder="Confirmez le nouveau mot de passe"/>
+              <button type="button" mat-icon-button matSuffix (click)="hide3 = !hide3" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide3">
+                <mat-icon>{{hide3 ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngIf="editpwForm.controls['password2'].errors?.required || editpwForm.controls['password2'].errors?.invalid">Veuillez confirmer avec un mot de passe identique au nouveau mot de passe</mat-error>
+
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit" [disabled]="editpwForm.invalid" style="margin-top: 5px;">Confirmer</button>
+          </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+</div>
+        
+        

@@ -1,0 +1,46 @@
+table {
+    width: 100%;
+  }
+  
+  .banner-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("src/assets/it_company.jpg");
+    height: 250px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .mat-elevation-z2 {
+    overflow-x: auto;
+   }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 50%;
+    display: block;
+  }
+  
+  @media (max-width: 600px) {
+    .mat-form-field {
+      font-size: 14px;
+      width: 60%;
+      display: block;
+    }
+  }
+  
+  span.false {
+    color: rgb(206, 0, 0);
+  }
+  
+  span.true {
+  color: rgb(30, 179, 0);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Titillium Web', sans-serif;
+  }
+  
+  ::ng-deep .snackbar-success-style{
+    color:rgb(46, 245, 112);;
+  }

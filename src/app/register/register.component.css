@@ -1,0 +1,182 @@
+a {
+    text-decoration: none;
+  }
+  
+  body {
+    background-color: #4eb0ce;
+    height: 100vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center
+  }
+  
+  label {
+    font-family: "Raleway", sans-serif;
+    font-size: 11pt;
+  }
+  
+  .form-container{
+    margin: 0px auto; 
+  }
+  
+  .form-field{
+    display: block;
+  }
+  
+  #card {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 0px 28px -4px #7E7E7E;
+    height: 75%;
+    margin: 6rem auto 8.1rem auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 40%;
+  }
+  
+  
+  #card-content {
+    padding: 12px 44px;
+    margin-top: 10px;
+  }
+  #card-title {
+    font-family: "Raleway Thin", sans-serif;
+    letter-spacing: 4px;
+    padding-bottom: 23px;
+    padding-top: 13px;
+    text-align: center;
+  }
+  #signup {
+    color: #2c2c2c;
+    font-family: "Raleway", sans-serif;
+    font-size: 10pt;
+    margin-top: 16px;
+    text-align: center;
+  }
+  #submit-btn {
+    background-color: #1eb7e6;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: white;
+    font-family: "Raleway SemiBold", sans-serif;
+    height: 42.3px;
+    margin: 0 auto;
+    margin-top: 10px;
+    transition: 0.25s;
+    width: 60%;
+  }
+  
+  #submit-btn:disabled,
+  #submit-btn[disabled]{
+    background-color: #c7c7c7;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: white;
+    font-family: "Raleway SemiBold", sans-serif;
+    height: 42.3px;
+    margin: 0 auto;
+    margin-top: 10px;
+    transition: 0.25s;
+    width: 60%;
+    cursor: not-allowed;
+  }
+  
+  #illustration {
+    width: 35%;
+    margin-left: 100px;
+  }
+  
+  @media (max-width: 900px) {
+  
+    #illustration {
+      display: none;
+    }
+  
+    #card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0px 0px 28px -4px #7E7E7E;
+      height: 550px;
+      margin: 6rem auto 8.1rem auto;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      width: 80%;
+    }
+  }
+  
+  #submit-btn:hover {
+    filter: brightness(110%);
+  }
+  
+  .form {
+    align-items: left;
+    display: flex;
+    flex-direction: column;
+  }
+  .form-border {
+    background: -webkit-linear-gradient(right, #1eb7e6, #2c2c2c);
+    height: 1px;
+    width: 100%;
+  }
+  .form-content {
+    background: #fbfbfb;
+    border: none;
+    outline: none;
+    padding-top: 14px;
+  }
+  .underline-title {
+    background: -webkit-linear-gradient(right, #1eb7e6, #2c2c2c);
+    height: 2px;
+    margin: -1.1rem auto 0 auto;
+    width: 250px;
+  }
+  
+  .profile-img-card {
+    margin: 0 auto 10px;
+    display: block;
+    width: 350px;
+  }
+  
+  ::ng-deep .snackbar-style{
+    color:rgb(204, 57, 57);;
+  }
+  
+  ::ng-deep .snackbar-success-style{
+    color:rgb(46, 245, 112);;
+  }
+  
+  ::ng-deep .mat-progress-bar-fill::after {
+    background-color: #1eb7e6;
+  }
+  
+  .forgot-pass {
+    color: #2c2c2c;
+    font-family: "Raleway", sans-serif;
+    font-size: 10pt;
+    margin-top: 3px;
+    text-align: right;
+  }
+  
+  .form_icon {
+    margin-right: 15px;
+  }
+.mat-form-field{
+  width: 100%;
+}
+.twocards{
+  display: flex;
+}
+  .twocards .mat-form-field{
+    width: 50%;
+  
+    
+  }
+
+  .radio-button {
+    margin: 5px;
+  }

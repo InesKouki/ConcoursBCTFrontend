@@ -1,0 +1,48 @@
+<body>
+    <!-- <img id="illustration" src="assets/bct.png" alt=""> -->
+  
+      <div id="card">
+        <div id="card-content">
+          <div class="example-flex-container">
+            <a mat-icon-button class="blue-icon" routerLink="#" (click)="logout()">
+              <mat-icon>logout</mat-icon>
+            </a>
+        </div>
+          <img alt="BctLogo" id="profile-img" src="assets/bct.png" class="profile-img-card"/>
+          <div id="card-title">
+            <h5>CONFIRMATION</h5>
+          </div>
+          <div class="underline-title"></div>
+  
+          <div class="form-container">
+            <br />
+            <p>
+              Entrez le code de confirmation qui se trouve dans votre boîte mail.
+              <br>
+              Si vous n'avez pas reçu un email, cliquez sur cette icône !
+              <button mat-icon-button class="blue-icon" (click)="mail()">
+                <mat-icon>email</mat-icon>
+              </button>
+            </p>
+            <form [formGroup]="confirmForm" (submit)="submit()">
+              <mat-form-field class="form-field" appearance="outline" style="margin-top: 20px">
+                <mat-label> Code de confirmation </mat-label>
+                <input matInput type="text" formControlName="code" required placeholder="Votre code de confirmation"/>
+  
+              <mat-error *ngIf="confirmForm.controls.code.touched && confirmForm.controls.code.invalid">
+                <span *ngIf="confirmForm.controls.code.errors.required">Ce champ est obligatoire</span>
+              </mat-error>
+  
+            </mat-form-field>
+  
+            <input id="submit-btn" type="submit" name="submit" value="CONFIRMER" />
+  
+  
+            </form>
+          </div>
+  
+  
+        </div>
+      </div>
+    </body>
+  

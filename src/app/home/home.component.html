@@ -1,0 +1,98 @@
+<div class="hero-image" #myDiv></div>
+<div>
+  <br/>
+  <div class="row"  style="width: 80%;margin-left: auto;margin-right: auto;">
+  <div
+  class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-light">
+  <div class="col p-4 d-flex flex-column position-static">
+    <h3 class="d-inline-block mb-2 text-secondary">
+      Bienvenue sur la plateforme de recrutement 
+    </h3>
+    <h5 class="card-text mb-auto">
+     
+      <p> Descripion </p> 
+    </h5>
+  </div>
+  </div>
+</div>
+
+
+
+<div class="row" *ngIf="isAdmin"  style="width: 80%;margin-left: auto;margin-right: auto;">
+      <h3>Statistiques sur la plateforme:</h3>
+          <div
+            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-light"
+            >
+            <div class="row spacerow">
+              <div class="col-md-6">
+
+                <!-- <mat-icon >work_outline </mat-icon> -->
+                <h4>
+                  
+                   Concours  
+                </h4>
+              </div>
+              <div class="col-md-6">
+                <!-- <mat-icon class="green-icon" style="vertical-align: middle; margin-right: 3px" >work_outline</mat-icon> -->
+                <h4>
+                  Concours activé
+                </h4>
+              </div>
+            </div>
+            <div class="row spacerow">
+              <div class="col-md-6">
+                <h4>
+                  <!-- <mat-icon
+                    color="primary"
+                    style="vertical-align: middle; margin-right: 3px"
+                    >contacts</mat-icon> Utilisateurs -->
+                </h4>
+              </div>
+              <div class="col-md-6">
+                
+              </div>
+            </div>
+          </div>
+        <!-- <div
+            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-light">
+            <div class="row spacerow">
+              <div class="col-md-4 user-stats">
+                <h4>
+                  <mat-icon
+                    color="primary"
+                    style="vertical-align: middle; margin-right: 10px"
+                    >people</mat-icon
+                  > 
+                 <span>{{ stats.users }} Utilisateurs</span> 
+                </h4>
+                <h4>
+                  <mat-icon
+                    class="green-icon"
+                    style="vertical-align: middle; margin-right: 3px"
+                    >sentiment_very_satisfied</mat-icon>
+                  {{ stats.usersConfirmed }} Utilisateurs confirmés
+                </h4>
+              </div>
+    
+              <div class="col-md-8"  >
+              
+
+                <div class="chart">
+                  <canvas
+                  baseChart
+                  [labels]="labels"
+                  [datasets]="pieChartData"
+                  [type]="pieChartType"
+                  [options]="pieChartOptions"
+
+                >
+                </canvas>
+                </div>
+              </div>
+            </div>
+        </div> -->
+
+</div>
+
+
+</div>

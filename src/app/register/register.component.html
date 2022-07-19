@@ -1,0 +1,102 @@
+<body>
+    <div id="card">
+      <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+      <div id="card-content">
+        <img alt="BCTLogo" src="assets/bct.png" class="profile-img-card"/>
+        <div id="card-title">
+          <h5>INSCRIPTION</h5>
+        </div>
+        <div class="underline-title"></div>
+        <br>
+  
+        <div class="form-container">
+          <form [formGroup]="registerForm" (submit)="submit()">
+
+            <div class="twocards">
+              <mat-form-field class="form-field" appearance="outline"style="margin-right: 5px">
+            
+                <mat-label> Nom </mat-label>
+                <mat-icon matPrefix color="primary" class="form_icon"><span class="material-symbols-outlined">
+                  badge
+                  </span></mat-icon>
+                <input matInput formControlName="nom" required />
+                <mat-error *ngIf="registerForm.controls.nom.touched && registerForm.controls.nom.invalid">
+                  <span *ngIf="registerForm.controls.nom.errors.required">Ce champ est obligatoire.</span>
+                  <span *ngIf="registerForm.controls.nom.errors.pattern">Votre nom doit contenir uniquement des lettres</span>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field class="form-field" appearance="outline">
+                
+                <mat-label> Prenom </mat-label>
+                <mat-icon matPrefix color="primary" class="form_icon"><span class="material-symbols-outlined">
+                  badge
+                  </span></mat-icon>
+                <input matInput formControlName="prenom" required />
+                <mat-error *ngIf="registerForm.controls.prenom.touched && registerForm.controls.prenom.invalid">
+                  <span *ngIf="registerForm.controls.prenom.errors.required">Ce champ est obligatoire.</span>
+                  <span *ngIf="registerForm.controls.prenom.errors.pattern">Votre nom doit contenir uniquement des lettres </span>
+                </mat-error>
+              </mat-form-field>
+              
+            </div>
+            
+            <mat-form-field class="form-field" appearance="outline" >
+              <mat-label> Username </mat-label>
+              <mat-icon matPrefix color="primary" class="form_icon">account_circle</mat-icon>
+              <input matInput type="text" formControlName="username" required placeholder="Votre identifiant"/>
+  
+              <mat-error *ngIf="registerForm.controls.username.touched && registerForm.controls.username.invalid">
+                 <span *ngIf="registerForm.controls.username.errors.required">Ce champ est obligatoire</span>
+                  <span *ngIf="registerForm.controls.username.errors.minlength">L'identifiant doit contenir au moins 5 caractères</span>
+                
+              </mat-error>
+  
+            </mat-form-field>
+  
+          <mat-form-field class="form-field" appearance="outline">
+            
+          <mat-label> Adresse Email</mat-label>
+          <mat-icon matPrefix color="primary" class="form_icon">alternate_email</mat-icon>
+          <input matInput formControlName="email" required />
+          <mat-error *ngIf="registerForm.controls.email.touched && registerForm.controls.email.invalid">
+            <span *ngIf="registerForm.controls.email.errors.required">Ce champ est obligatoire.</span>
+            <span *ngIf="registerForm.controls.email.errors.pattern">Il faut entrer une adresse valide</span>
+          </mat-error>
+        </mat-form-field>
+
+            <mat-form-field class="form-field" appearance="outline">
+            <mat-label> Mot de passe </mat-label>
+            <mat-icon matPrefix color="primary" class="form_icon">lock</mat-icon>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required/>
+            <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="registerForm.controls.password.touched && registerForm.controls.password.invalid">
+              <span *ngIf="registerForm.controls.password.errors.required">Ce champ est obligatoire</span>
+              <span *ngIf="registerForm.controls.password.errors.minlength">Le mot de passe doit contenir au moins 6 caractères</span>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-radio-group class="radio-group" formControlName="sexe">
+            <mat-label> </mat-label>
+            <mat-radio-button color="primary" class="radio-button" *ngFor="let sexe of sexes" [value]="sexe">
+              {{sexe}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <p class="forgot-pass">
+            <a style="color: black;" routerLink="/login">
+              Avez-vous déjà un compte ?
+            </a>
+          </p>
+            <button id="submit-btn" type="submit" [disabled]="!(registerForm.controls.password.valid && registerForm.controls.username.valid && registerForm.controls.email.valid && registerForm.controls.nom.valid && registerForm.controls.prenom.valid && registerForm.controls.sexe.valid)">CONFIRMER</button>
+  
+          </form>
+          
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </body>
+  

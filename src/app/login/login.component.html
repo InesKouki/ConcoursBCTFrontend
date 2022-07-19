@@ -1,0 +1,51 @@
+<body>
+  <!-- <img id="illustration" src="assets/background.png" alt=""> -->
+
+  <div id="card">
+    <div id="card-content">
+      <img alt="BCTLogo" src="assets/bct.png" class="profile-img-card"/>
+      <div id="card-title">
+        <h5>CONNEXION</h5>
+      </div>
+     <div class="underline-title"></div>
+
+     <div class="form-container">
+      <form [formGroup]="loginForm" (submit)="submit()">
+        <mat-form-field class="form-field" appearance="outline" style="margin-top: 20px">
+          <mat-label> Identifiant </mat-label>
+          <input matInput type="text" formControlName="username" required placeholder="Votre identifiant"/>
+          <mat-icon matPrefix color="primary" class="form_icon">account_circle</mat-icon>
+
+        <mat-error *ngIf="loginForm.controls.username.touched && loginForm.controls.username.invalid">
+          <span *ngIf="loginForm.controls.username.errors.required">Ce champ est obligatoire</span>
+        </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Mot de passe </mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required/>
+        <mat-icon matPrefix color="primary" class="form_icon">lock</mat-icon>
+
+        <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid">
+          <span *ngIf="loginForm.controls.password.errors.required">Ce champ est obligatoire</span>
+          <span *ngIf="loginForm.controls.password.errors.minlength">Le mot de passe doit contenir au moins 6 caractères</span>
+        </mat-error>
+      </mat-form-field>
+         <p class="forgot-pass">
+          <a style="color: black;" routerLink="/forgot-pw">
+            J'ai oublié mon mot de passe!
+          </a>
+        </p>
+
+        <input id="submit-btn" type="submit" name="submit" value="CONFIRMER" />
+        <br/>
+        <a routerLink="/register" id="signup">Vous n'avez pas de compte ? <span style="color: #1eb7e6;">Inscrivez-vous !</span> </a>
+
+      </form>
+    </div>
+    </div>
+  </div>
+</body>
