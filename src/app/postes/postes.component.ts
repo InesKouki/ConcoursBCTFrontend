@@ -26,7 +26,7 @@ export class PostesComponent implements OnInit {
   panelOpenState = false;
   step = 4;
   nbRegx=/^[0-9]+$/;
-  displayedColumns: string[] = ['Nom', 'description', 'nombre de place','actions'];
+  displayedColumns: string[] = ['nom', 'description', 'nombrePlace','actions'];
 
   dataSource: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
