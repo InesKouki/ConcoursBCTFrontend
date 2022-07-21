@@ -12,6 +12,7 @@ import { ConcoursService } from "../../_services/concours.service";
   })
   export class UpdateConcoursComponent implements OnInit {
     updateConcoursForm: FormGroup;
+    details:any;
   
     constructor(
       public dialogRef: MatDialogRef<UpdateConcoursComponent>,
@@ -22,12 +23,19 @@ import { ConcoursService } from "../../_services/concours.service";
     ) {}
   
     ngOnInit(): void {
+      //this.getConcoursDetails(this.id);
       this.updateConcoursForm = this.formBuilder.group({
         titre: [null, Validators.required],
         description: [null,Validators.required],
         dateDebut: [null, Validators.required],
         dateFin: [null,Validators.required],
       });
+    }
+
+    getConcoursDetails(id) {
+      this.ConcoursService.getConcoursDetails(id).subscribe((data: any) => {
+        this.details=data;
+        });
     }
   
     openSuccessSnackBar(message: string) {

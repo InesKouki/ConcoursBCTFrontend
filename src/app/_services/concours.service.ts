@@ -20,6 +20,10 @@ export class ConcoursService {
     return this.http.get<any[]>(API_URL+'all');
   }
 
+  getConcoursDetails(id:any): Observable<any[]> {
+    return this.http.get<any[]>(API_URL+id);
+  }
+
   getConcours(id:number): Observable<any[]> {
     return this.http.get<any[]>(API_URL+id);
   }
