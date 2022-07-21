@@ -22,6 +22,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { UpdateConcoursComponent } from './update-concours/update-concours';
+import { PosteConcoursDialog } from './poste-concours-dialog';
 
 
 @NgModule({
@@ -55,12 +56,14 @@ import { UpdateConcoursComponent } from './update-concours/update-concours';
     UpdateConcoursComponent,
     ConcoursComponent,
     RemoveConcoursDialogContent,
+    PosteConcoursDialog,
   ],
     
   declarations: [ 
     UpdateConcoursComponent,
     ConcoursComponent,
     RemoveConcoursDialogContent,
+    PosteConcoursDialog
     ]
 })
 export class ConcoursModule { }

@@ -48,4 +48,7 @@ export class ConcoursService {
     return this.http.post(API_URL + 'update',{id,titre,dateDebut,dateFin,description},httpOptions);
   }
   
+  getNonPostes(id:number): Observable<any[]> {
+    return this.http.get<any[]>(API_URL+'postes/'+id);
+  }
 }

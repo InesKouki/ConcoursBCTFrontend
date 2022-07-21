@@ -28,6 +28,7 @@ export class ConcoursComponent implements OnInit {
   concours:any[];
   concoursSearch:any[];
   Postes:any[];
+  nonPostes:any[];
 
   currentConcour = null;
   currentIndex = -1;
@@ -102,6 +103,7 @@ export class ConcoursComponent implements OnInit {
     });
 
     this.getConcours();
+    this.getPostes();
   }
 
   openDialogUpdateConcours(id) {
@@ -132,13 +134,19 @@ export class ConcoursComponent implements OnInit {
     });
     }
 
-    get getProjetInForm() {
+    getNonPostes(id) {
+      this.ConcoursService.getNonPostes(id).subscribe(data=>{
+        this.nonPostes=data;
+      })
+    }
+
+    get getConcoursInForm() {
       return this.assignToConcoursForm.get('selectConcours').value;
     }
   
-    // onProjetChange() {
-    //   this.getNonEquipe(this.getProjetInForm);
-    // }
+    onConcoursChange() {
+      this.getNonPostes(this.getConcoursInForm);
+    }
 
     submit() {
       if (!this.newForm.valid) {
@@ -164,10 +172,12 @@ export class ConcoursComponent implements OnInit {
       if (!this.assignToConcoursForm.valid) {
         return;
       }
-      this.ConcoursService.assign(this.assignToConcoursForm.value.selectConcour,this.assignToConcoursForm.value.selectPoste).subscribe(
+      this.ConcoursService.assign(this.assignToConcoursForm.value.selectConcours,this.assignToConcoursForm.value.selectPoste).subscribe(
       data => {
         this.openSuccessSnackBar('Le poste a été ajouté au concours !')
         this.getPostes();
+        this.getConcours();
+
        
       });
       this.formDirective3.resetForm();
@@ -193,27 +203,24 @@ export class ConcoursComponent implements OnInit {
     }
 
     hasPostes(concourId:number):boolean {
-      for (var p of this.Postes) {
-        if (p.id==concourId) {
-          if (p.equipe.length==0) {
+      for (var c of this.concours) {
+        if (c.id==concourId) {
+          if (c.postes.length==0) {
             return false
           }
         }
       }
       return true;
     }
-    // onConcoursChange() {
-    //   this.getNonEquipe(this.getConcoursInForm);
-    // }
   
-    // openDialogUnassign(id) {
-    //   const dialogRef = this.dialog.open(PosteConcoursDialog);
-    //   dialogRef.afterClosed().subscribe(result => {
-    //     if (result === true) {
-    //       this.unassign(id);
-    //     }
-    //   });
-    // }
+    openDialogUnassign(id,idp) {
+      const dialogRef = this.dialog.open(PosteConcoursDialog);
+      dialogRef.afterClosed().subscribe(result => {
+        if (result === true) {
+          this.unassign(id,idp);
+        }
+      });
+    }
 
     getConcours() {
       this.ConcoursService.getConcoursList().subscribe((data: any) => {
@@ -227,7 +234,8 @@ export class ConcoursComponent implements OnInit {
 
     unassign(id: number,idP: number) {
       this.ConcoursService.unassign(id,idP).subscribe(data => {
-      this.getPostes();
+      this.getConcours();
+      //this.getPostes();
       
       })
     }
@@ -245,5 +253,7 @@ export class ConcoursComponent implements OnInit {
     scroll(el: HTMLElement) {
       el.scrollIntoView({behavior: 'smooth'});
   }
+
+
 
 }
