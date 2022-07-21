@@ -31,6 +31,9 @@ export class PostesService {
     return this.http.post(API_URL + 'add',{nom,description,nombrePlace},httpOptions);
   }
 
+  update(id:any,nom: any,description: any,nombrePlace: any): Observable<any> {
+    return this.http.post(API_URL + 'update',{id,nom,description,nombrePlace},httpOptions);
+  }
 
 
 }

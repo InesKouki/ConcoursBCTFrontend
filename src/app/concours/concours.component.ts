@@ -10,8 +10,6 @@ import { PostesService } from '../_services/postes.service';
 import { ConcoursService } from '../_services/concours.service';
 import { UserService } from '../_services/user.service';
 import { PosteConcoursDialog } from './poste-concours-dialog';
-// import { EquipeProjetDialog } from './equipe-projet-dialog';
-// import { ProjetsDialogContent } from './projets-dialog-content';
 import { RemoveConcoursDialogContent } from './remove-concours-dialog-content';
 import { UpdateConcoursComponent } from './update-concours/update-concours';
 

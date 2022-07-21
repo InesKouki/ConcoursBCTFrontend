@@ -149,5 +149,3 @@ export class PostesComponent implements OnInit {
 }
 
 }
-
-

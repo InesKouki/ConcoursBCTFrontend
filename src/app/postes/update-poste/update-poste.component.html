@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Modifier les informations sur ce poste</h1>
+<mat-dialog-content class="mat-typography" style="overflow: hidden;height: 400px;">
+       <form [formGroup]="updatePostesForm" (submit)="submit()">
+        <p><strong>Étape 1:</strong> Modifiez le nom du poste</p>
+
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label> Nom du poste</mat-label>
+          <input matInput type="text" formControlName="nom" placeholder="Entrez un nom" />
+        </mat-form-field>
+
+        <p style="margin-top: 5px"><strong>Étape 2:</strong> Modifier la description du poste</p>
+
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label> Description du poste</mat-label>
+          <input matInput type="text" formControlName="description" placeholder="Entrez une description" />
+        </mat-form-field>
+
+        <p style="margin-top: 5px"><strong>Étape 3:</strong> Modifier le nombre de place du poste</p>
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label> Nombre de place</mat-label>
+          <input matInput type="text" formControlName="nombrePlace" placeholder="Entrez le nombre de place" />
+        </mat-form-field>
+
+        <mat-dialog-actions >
+          <button mat-raised-button color="primary" style="width: 100%;" [disabled]="updatePostesForm.invalid" type="submit">Confirmer</button>
+
+          <!-- <button mat-stroked-button [mat-dialog-close]="true" >Terminer</button> -->
+        </mat-dialog-actions>
+
+       </form>
+
+</mat-dialog-content>
+
