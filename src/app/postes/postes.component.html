@@ -1,0 +1,47 @@
+<div class="banner-image" #myDiv>
+</div>
+<div class="container">
+  <br>
+  <h4>Gestion des postes</h4>
+<div>
+ <mat-accordion>
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" style="margin-top: 15px;">
+        <mat-expansion-panel-header>
+           <mat-panel-title>
+            <mat-icon color="primary">create_new_folder</mat-icon>
+            &nbsp;
+            Créer un nouveau poste
+           </mat-panel-title>
+           <mat-panel-description>
+          
+           </mat-panel-description>
+         </mat-expansion-panel-header>
+           <p><strong>Étape 1:</strong> Donnez un nom à votre poste</p>
+             <form [formGroup]="newForm" (submit)="submit()" #formDirective1="ngForm" >
+
+              <mat-form-field class="form-field" appearance="outline">
+                <mat-label> Nom du poste</mat-label>
+                <input matInput type="text" formControlName="nom" placeholder="Entrez un nom"/>
+              </mat-form-field>
+
+              <p style="margin-top: 5px"><strong>Étape 2:</strong> Donnez une description à votre poste</p>
+
+              <mat-form-field class="form-field" appearance="outline">
+                <mat-label> Description du poste</mat-label>
+                <input matInput type="text" formControlName="description" placeholder="Entrez une description"/>
+              </mat-form-field>
+              
+              <p style="margin-top: 5px"><strong>Étape 3:</strong> Donnez le nombre de places disponibles a votre poste </p>
+              
+              <mat-form-field class="form-field" appearance="outline">
+                <mat-label> Nombre de places</mat-label>
+                <input matInput type="text" formControlName="nombrePlace" placeholder="Entrez une description"/>
+              </mat-form-field>
+
+               <button mat-raised-button color="primary" type="submit" [disabled]="newForm.invalid" style="margin-top: 5px;">Confirmer</button>
+             </form>
+
+       </mat-expansion-panel>
+    </mat-accordion>
+
+</div>

@@ -19,6 +19,14 @@ export const commonLayoutRoutes: Routes = [
         loadChildren: () => import(`../concours/concours.module`)
           .then(m => m.ConcoursModule)
       },
+
+      {
+        path: 'postes',
+        canActivate:[IsAdminGuard],
+        loadChildren: () => import(`../postes/postes.module`)
+          .then(m => m.PostesModule)
+      },
+
       {
         path: 'home',
         loadChildren: () => import(`../home/home.module`)

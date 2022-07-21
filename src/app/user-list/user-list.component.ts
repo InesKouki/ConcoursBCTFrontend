@@ -18,7 +18,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class UserListComponent implements OnInit,AfterViewInit {
   makeAdminForm: FormGroup;
-  displayedColumns: string[] = ['#','nom','prenom','username','sexe','email','confirmed','actions'];
+  displayedColumns: string[] = ['#','nom','prenom','username', 'email', 'sexe', 'confirmed','actions'];
   dataSource: MatTableDataSource<any>;
   users:any[];
   isSuperAdmin = false;
@@ -119,7 +119,7 @@ export class UserListComponent implements OnInit,AfterViewInit {
   }
 
   redirect() {
-  this.router.navigate(['/home']);
+  this.router.navigate(['/homeAdmin']);
   }
 
   deleteUser(id: number) {

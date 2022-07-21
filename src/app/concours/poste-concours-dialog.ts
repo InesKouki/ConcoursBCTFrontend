@@ -22,7 +22,7 @@ import { ConcoursService } from '../_services/concours.service';
     }
   
     removeFromConcours(concoursId:number,posteId:number) {
-      this.concoursService.unassignFromConcours(concoursId,posteId).subscribe(data => {
+      this.concoursService.unassign(concoursId,posteId).subscribe(data => {
         this.dialogRef.close();
         })
     }

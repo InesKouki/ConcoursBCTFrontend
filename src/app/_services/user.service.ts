@@ -16,7 +16,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUserList(): Observable<any[]> {
-    return this.http.get<any[]>(API_URL+'userList');
+    return this.http.get<any[]>(API_URL+'userlist');
   }
 
   confirm(id:any,username:any,password:any,code: any): Observable<any> {
@@ -24,7 +24,7 @@ export class UserService {
   }
 
   deleteUser(id: number): Observable<any> {
-    return this.http.delete(API_URL+'delete/' + id);
+    return this.http.delete(API_URL+'userdelete/' + id);
   }
 
   makeAdmin(username: string): Observable<any> {

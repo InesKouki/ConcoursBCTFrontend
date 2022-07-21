@@ -36,12 +36,16 @@ export class ConcoursService {
     return this.http.post(API_URL + 'assignPoste',{concoursId,posteId},httpOptions);
   }
 
-  unassignFromConcours(concoursId:any,posteId: any): Observable<any> {
+  unassign(concoursId:any,posteId: any): Observable<any> {
     return this.http.post(API_URL + 'removePoste',{concoursId,posteId},httpOptions);
   }
 
   getPoste(id:number): Observable<any[]> {
     return this.http.get<any[]>(API_URL+'postes/'+id);
+  }
+
+  update(id:any,titre: any,dateDebut: any,dateFin: any,description:any): Observable<any> {
+    return this.http.post(API_URL + 'update',{id,titre,dateDebut,dateFin,description},httpOptions);
   }
   
 }
