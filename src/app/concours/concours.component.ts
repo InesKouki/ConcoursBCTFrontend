@@ -132,10 +132,14 @@ export class ConcoursComponent implements OnInit {
     });
     }
 
-    get getConcoursInForm2() {
-      return this.linkForm.get('selectConcour').value;
+    get getProjetInForm() {
+      return this.assignToConcoursForm.get('selectConcours').value;
     }
   
+    // onProjetChange() {
+    //   this.getNonEquipe(this.getProjetInForm);
+    // }
+
     submit() {
       if (!this.newForm.valid) {
         return;
@@ -153,6 +157,8 @@ export class ConcoursComponent implements OnInit {
       this.step=4;
     }
     }
+
+    
 
     submitAssignToConcours() {
       if (!this.assignToConcoursForm.valid) {

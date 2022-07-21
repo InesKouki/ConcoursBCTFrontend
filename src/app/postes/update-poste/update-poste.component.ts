@@ -40,7 +40,7 @@ export class UpdatePosteComponent implements OnInit {
     }
     this.PostesService.update(this.id,this.updatePostesForm.value.nom,this.updatePostesForm.value.description,this.updatePostesForm.value.nombrePlace).subscribe(
       data => {
-        this.openSuccessSnackBar('Concours mis à jour avec succès !')     
+        this.openSuccessSnackBar('Poste mis à jour avec succès !')     
         this.dialogRef.close();
    
       });

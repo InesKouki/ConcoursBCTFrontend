@@ -26,7 +26,7 @@ export class PostesComponent implements OnInit {
   panelOpenState = false;
   step = 4;
   nbRegx=/^[0-9]+$/;
-  displayedColumns: string[] = ['Nom', 'description', 'nombre de place','actions'];
+  displayedColumns: string[] = ['nom', 'description', 'nombrePlace','actions'];
 
   dataSource: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -75,6 +75,8 @@ export class PostesComponent implements OnInit {
       nombrePlace: [null,[Validators.required,Validators.pattern(this.nbRegx)]],
       
     });
+
+    this.getPostes();
   }
   openSuccessSnackBar(message: string) {
     this._snackBar.open(message, '', {
@@ -107,6 +109,7 @@ export class PostesComponent implements OnInit {
     this.PostesService.add(this.newForm.value.nom,this.newForm.value.description,this.newForm.value.nombrePlace).subscribe(
     data => {
       this.openSuccessSnackBar('Poste crée avec succès !')
+      this.getPostes();
      
       
     });
@@ -137,6 +140,7 @@ export class PostesComponent implements OnInit {
 
   supprimerPoste(id: number) {
     this.PostesService.deletePoste(id).subscribe(data => {
+      this.getPostes();
     })
   }
 
