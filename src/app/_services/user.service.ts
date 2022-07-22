@@ -16,7 +16,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUserList(): Observable<any[]> {
-    return this.http.get<any[]>(API_URL+'userlist');
+    return this.http.get<any[]>(API_URL+'userList');
   }
 
   confirm(id:any,username:any,password:any,code: any): Observable<any> {
