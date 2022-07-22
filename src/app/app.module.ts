@@ -14,6 +14,7 @@ import { CommonLayoutModule } from './common-layout/common-layout.module';
   declarations: [
     AppComponent,
     
+    
   ],
   imports: [
     CommonModule,

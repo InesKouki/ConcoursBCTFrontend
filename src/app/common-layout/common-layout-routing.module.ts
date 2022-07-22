@@ -28,6 +28,13 @@ export const commonLayoutRoutes: Routes = [
       },
 
       {
+        path: 'questions',
+        canActivate:[IsAdminGuard],
+        loadChildren: () => import(`../questions/questions.module`)
+          .then(m => m.QuestionsModule)
+      },
+
+      {
         path: 'home',
         loadChildren: () => import(`../home/home.module`)
           .then(m => m.HomeModule)

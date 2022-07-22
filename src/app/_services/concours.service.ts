@@ -45,10 +45,14 @@ export class ConcoursService {
   }
 
   update(id:any,titre: any,dateDebut: any,dateFin: any,description:any): Observable<any> {
-    return this.http.post(API_URL + 'update',{id,titre,dateDebut,dateFin,description},httpOptions);
+    return this.http.put(API_URL + 'update',{id,titre,dateDebut,dateFin,description},httpOptions);
   }
   
   getNonPostes(id:number): Observable<any[]> {
     return this.http.get<any[]>(API_URL+'postes/'+id);
+  }
+
+  getConcoursDetails(id:any): Observable<any[]> {
+    return this.http.get<any[]>(API_URL+id);
   }
 }

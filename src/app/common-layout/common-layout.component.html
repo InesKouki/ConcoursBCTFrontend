@@ -21,58 +21,6 @@
         </a>
       </li>
 
-      <!-- ADMIN List Machines Virtuelles -->
-      <!-- <li class="nav-item" *ngIf="isAdmin">
-        <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item1" href="#" style="width: 250px">
-          <mat-icon class="grey-icon">laptop</mat-icon>
-          <span class="nav1-text">Machines Virtuelles <i class="bi small bi-caret-down-fill"></i></span>
-        </a>
-        <ul id="menu_item1" class="submenu collapse" data-bs-parent="#nav_accordion">
-          <li>
-            <a class="nav-link" routerLink="vmlist" routerLinkActive="Linkactive" style="width: 250px">
-              <mat-icon class="grey-icon">settings</mat-icon>
-              <span class="nav-text"> Administration </span>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" routerLink="vmaccess" routerLinkActive="Linkactive">
-              <mat-icon class="grey-icon">login</mat-icon>
-              <span class="nav-text"> Accès au MV </span>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" routerLink="accessRequests" routerLinkActive="Linkactive">
-              <mat-icon class="grey-icon">verified_user</mat-icon>
-              <span class="nav-text"> Demandes d'accès au MV </span>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" routerLink="keypairs" routerLinkActive="Linkactive">
-              <em class="fa fa-unlock-alt fa-2x"></em>
-              <span class="nav-text"> Keypairs </span>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" routerLink="securityGroups" routerLinkActive="Linkactive">
-              <mat-icon class="grey-icon">security</mat-icon>
-              <span class="nav-text"> Groupes de sécurité </span>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" routerLink="vmlogs" routerLinkActive="Linkactive">
-              <mat-icon class="grey-icon">manage_search</mat-icon>
-              <span class="nav-text"> Actions sur les instances </span>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" routerLink="elasticip" routerLinkActive="Linkactive">
-              <mat-icon class="grey-icon">alternate_email</mat-icon>
-              <span class="nav-text"> Elastic IP Address </span>
-            </a>
-          </li>
-        </ul>
-      </li> -->
-
       <!-- ADMIN List Projets -->
       <li class="nav-item" *ngIf="isAdmin">
         <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item2" href="#" style="width: 250px">
@@ -92,6 +40,13 @@
               <span class="nav-text"> Postes </span>
             </a>
           </li>
+
+          <li>
+            <a class="nav-link" routerLink="questions" routerLinkActive="Linkactive">
+              <em class="fa fa-question fa-2x"></em>
+              <span class="nav-text"> Questions </span>
+            </a>
+          </li>
         </ul>
       </li>
 
@@ -103,43 +58,7 @@
         </a>
       </li>
 
-      <!-- USER List Item Accès aux VM-->
-      <!-- <li class="nav-item" *ngIf="isUser">
-        <a class="nav-link navbar-item" routerLink="vmaccess" routerLinkActive="Linkactive">
-          <mat-icon class="grey-icon">login</mat-icon>
-          <span class="nav-text"> Accès au Machines Virtuelles </span>
-        </a>
-      </li> -->
 
-      <!-- USER List Item Projet-->
-      <!-- <li class="nav-item" *ngIf="isUser">
-        <a class="nav-link navbar-item" routerLink="mesProjets" routerLinkActive="Linkactive">
-          <em class="fa fa-folder-open fa-2x"></em>
-          <span class="nav-text"> Projets </span>
-        </a>
-      </li> -->
-
-      <!-- List Déploiement -->
-      <!-- <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item3" href="#" style="width: 250px">
-          <mat-icon class="grey-icon">cloud_upload</mat-icon>
-          <span class="nav1-text">Déploiement <i class="bi small bi-caret-down-fill"></i></span>
-        </a>
-        <ul id="menu_item3" class="submenu collapse" data-bs-parent="#nav_accordion">
-          <li>
-            <a class="nav-link" routerLink="guides" routerLinkActive="Linkactive" style="width: 250px">
-              <mat-icon class="grey-icon">library_books</mat-icon>
-              <span class="nav-text"> Guides de déploiement </span>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" routerLink="deploy" routerLinkActive="Linkactive">
-              <mat-icon class="grey-icon">cloud_done</mat-icon>
-              <span class="nav-text"> Déployer un projet </span>
-            </a>
-          </li>
-        </ul>
-      </li> -->
     </ul>
 
     <ul class="logout">

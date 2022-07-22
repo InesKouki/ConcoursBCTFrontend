@@ -24,7 +24,7 @@ export class ConcoursComponent implements OnInit {
   assignForm: FormGroup;
   assignToConcoursForm: FormGroup;
   linkForm: FormGroup;
-
+  details:any;
   concours:any[];
   concoursSearch:any[];
   Postes:any[];
@@ -238,6 +238,12 @@ export class ConcoursComponent implements OnInit {
       //this.getPostes();
       
       })
+    }
+
+    getConcoursDetails(id) {
+      this.ConcoursService.getConcoursDetails(id).subscribe((data: any) => {
+        this.details=data;
+        });
     }
 
     supprimerConcour(id: number) {
