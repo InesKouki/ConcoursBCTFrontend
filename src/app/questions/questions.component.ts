@@ -9,6 +9,7 @@ import { QuestionsService } from '../_services/questions.service';
 import { Router } from '@angular/router';
 import { UpdateQuestionComponent } from './update-question/update-question';
 import { RemoveQuestionDialogContent } from './remove-question-dialog-content';
+import { ChoixQuestionDialog } from './choix-question-dialog';
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.component.html',
@@ -19,7 +20,7 @@ export class QuestionsComponent implements OnInit {
   newFormtest: FormGroup;
   assignForm: FormGroup;
   assignToQuestionForm: FormGroup;
-
+  nbRegx=/^[0-9]+$/;
   questions:any[];
   questionSearch:any[];
   choix:any[];
@@ -76,7 +77,14 @@ export class QuestionsComponent implements OnInit {
   ngOnInit(): void {
     this.newForm = this.formBuilder.group({
       libelle: [null, Validators.required],
+      
      
+    });
+
+    this.assignToQuestionForm = this.formBuilder.group({
+      selectQuestion: [null, Validators.required],
+      libelleRep: [null, Validators.required],
+      scoreRep: [null, [Validators.required,Validators.pattern(this.nbRegx)]],
     });
 
     this.getQuestions();
@@ -109,9 +117,9 @@ export class QuestionsComponent implements OnInit {
     return this.assignToQuestionForm.get('selectQuestion').value;
   }
 
-  // onConcoursChange() {
-  //   this.getNonPostes(this.getConcoursInForm);
-  // }
+  onQuestionChange() {
+    this.getNonChoix(this.getQuestionInForm);
+  }
 
   submit() {
     if (!this.newForm.valid) {
@@ -141,7 +149,67 @@ export class QuestionsComponent implements OnInit {
     });
   }
 
-  
+  submitAssignToQuestion() {
+    if (!this.assignToQuestionForm.valid) {
+      return;
+    }
+    this.QuestionsService.assign(this.assignToQuestionForm.value.selectQuestion,this.assignToQuestionForm.value.libelleRep,this.assignToQuestionForm.value.scoreRep).subscribe(
+    data => {
+      this.openSuccessSnackBar('Le choix a été ajouté a la question !')
+      this.getQuestions();
+      
+
+     
+    });
+    this.formDirective3.resetForm();
+    this.assignToQuestionForm.reset();
+    this.step=4;
+  }
+  getNonChoix(id) {
+    this.QuestionsService.getNonChoix(id).subscribe(data=>{
+      this.nonChoix=data;
+    })
+  }
+
+  get getQuestionInForm() {
+    return this.assignToQuestionForm.get('selectQuestion').value;
+  }
+
+
+  // hasChoix(QuestionId:number):boolean {
+  //   for (var q of this.questions) {
+  //     if (q.id==QuestionId) {
+  //       if (q.choix.length==0) {
+  //         return false
+  //       }
+  //     }
+  //   }
+  //   return true;
+  // }
+  openDialogChoix(id) {
+    this.dialog.open(ChoixQuestionDialog, {
+      data:id
+    });
+
+  }
+  openDialogUnassign(id,idc) {
+    const dialogRef = this.dialog.open(ChoixQuestionDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        this.unassign(id,idc);
+      }
+    });
+  }
+
+  unassign(id: number,idc: number) {
+    this.QuestionsService.unassign(id,idc).subscribe(data => {
+    this.getQuestions();
+ 
+    
+    })
+  }
+
+
   getQuestions() {
     this.QuestionsService.getQuestionsList().subscribe((data: any) => {
       this.questions=data;

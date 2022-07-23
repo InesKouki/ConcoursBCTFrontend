@@ -22,7 +22,7 @@ import { QuestionsRoutingModule } from './questions-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateQuestionComponent } from './update-question/update-question';
 import { RemoveQuestionDialogContent } from './remove-question-dialog-content';
-
+import { ChoixQuestionDialog } from './choix-question-dialog'
 
 @NgModule({
  
@@ -47,17 +47,20 @@ import { RemoveQuestionDialogContent } from './remove-question-dialog-content';
     FormsModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+  
   ],
   exports:[
     QuestionsComponent,
     UpdateQuestionComponent,
-    RemoveQuestionDialogContent
+    RemoveQuestionDialogContent,
+    ChoixQuestionDialog
   ],
   declarations: [
     QuestionsComponent,
     UpdateQuestionComponent,
-    RemoveQuestionDialogContent
+    RemoveQuestionDialogContent,
+    ChoixQuestionDialog
   ],
   
 })

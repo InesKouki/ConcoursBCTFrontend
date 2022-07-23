@@ -35,4 +35,20 @@ export class QuestionsService {
   update(id:any,libelle: any): Observable<any> {
     return this.http.put(API_URL + 'update',{id,libelle},httpOptions);
   }
+
+  assign(questionId:any,libelleRep: any,scoreRep: any): Observable<any> {
+    return this.http.post(API_URL + 'addChoix',{questionId,libelleRep,scoreRep},httpOptions);
+  }
+
+  unassign(questionId:any,choixId: any): Observable<any> {
+    return this.http.post(API_URL + 'removeChoix',{questionId,choixId},httpOptions);
+  }
+
+  getNonChoix(id:number): Observable<any[]> {
+    return this.http.get<any[]>(API_URL+'choix/'+id);
+  }
+  getChoix(id:number): Observable<any[]> {
+    return this.http.get<any[]>(API_URL+'choix/'+id);
+  }
+
 }
