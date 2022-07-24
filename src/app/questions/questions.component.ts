@@ -176,16 +176,16 @@ export class QuestionsComponent implements OnInit {
   }
 
 
-  // hasChoix(QuestionId:number):boolean {
-  //   for (var q of this.questions) {
-  //     if (q.id==QuestionId) {
-  //       if (q.choix.length==0) {
-  //         return false
-  //       }
-  //     }
-  //   }
-  //   return true;
-  // }
+  hasChoix(QuestionId:number):boolean {
+    for (var q of this.questions) {
+      if (q.id==QuestionId) {
+        if (q.choix.length==0) {
+          return false
+        }
+      }
+    }
+    return true;
+  }
   openDialogChoix(id) {
     this.dialog.open(ChoixQuestionDialog, {
       data:id

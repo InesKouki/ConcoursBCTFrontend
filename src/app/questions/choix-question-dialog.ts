@@ -21,8 +21,8 @@ import { QuestionsService } from '../_services/questions.service';
       })
     }
   
-    removeFromQuestion(questionId:number,choixId:number) {
-      this.questionsService.unassign(questionId,choixId).subscribe(data => {
+    removeFromQuestion(idQuestion:number,idChoix:number) {
+      this.questionsService.unassign(idQuestion,idChoix).subscribe(data => {
         this.dialogRef.close();
         })
     }

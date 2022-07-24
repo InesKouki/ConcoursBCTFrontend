@@ -40,13 +40,14 @@ export class QuestionsService {
     return this.http.post(API_URL + 'addChoix',{questionId,libelleRep,scoreRep},httpOptions);
   }
 
-  unassign(questionId:any,choixId: any): Observable<any> {
-    return this.http.post(API_URL + 'removeChoix',{questionId,choixId},httpOptions);
+  unassign(idQuestion:any,idChoix: any): Observable<any> {
+    return this.http.post(API_URL + 'removeChoix',{idQuestion,idChoix},httpOptions);
   }
 
   getNonChoix(id:number): Observable<any[]> {
     return this.http.get<any[]>(API_URL+'choix/'+id);
   }
+
   getChoix(id:number): Observable<any[]> {
     return this.http.get<any[]>(API_URL+'choix/'+id);
   }

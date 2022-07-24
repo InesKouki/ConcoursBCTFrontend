@@ -4,9 +4,9 @@
         <div class="col" *ngFor="let c of choix;">
           <mat-card style="margin-bottom: 8px;">
             <mat-card-title-group>
-              <mat-card-title style="  font-size: 20px;font-family: Poppins, sans-serif;">{{c.libelle}}</mat-card-title>
-              <mat-card-subtitle>{{c.score}}</mat-card-subtitle>
-              <img mat-card-sm-image src="assets/poste.png" alt="avatar" style="margin-left: 10px;">
+              <mat-card-title style="  font-size: 20px;font-family: Poppins, sans-serif;"> Libelle: {{c.libelle}}</mat-card-title>
+              <mat-card-subtitle> Score: {{c.scoreChoix}}</mat-card-subtitle>
+              <!-- <img mat-card-sm-image src="assets/poste.png" alt="avatar" style="margin-left: 10px;"> -->
             </mat-card-title-group>
             <mat-card-actions>
               <button mat-stroked-button color="warn" style="width: 100%;" (click)="removeFromQuestion(id,c.id)" >RETIRER</button>
