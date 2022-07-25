@@ -55,4 +55,8 @@ export class ConcoursService {
   getConcoursDetails(id:any): Observable<any[]> {
     return this.http.get<any[]>(API_URL+id);
   }
+
+  
+
+
 }

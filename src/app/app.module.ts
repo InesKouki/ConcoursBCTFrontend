@@ -10,11 +10,10 @@ import { CommonLayoutModule } from './common-layout/common-layout.module';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    
-    
   ],
   imports: [
     CommonModule,

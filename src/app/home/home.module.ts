@@ -8,13 +8,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatListModule} from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card'
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
     HomeComponent
   ],
   exports: [
-    HomeComponent
+    HomeComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -24,6 +27,8 @@ import {MatListModule} from '@angular/material/list';
     MatButtonModule,
     MatProgressSpinnerModule,
     MatListModule,
+    MatCardModule,
+    MatProgressBarModule
 
   ]
 })

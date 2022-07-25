@@ -33,7 +33,7 @@ export class CommonLayoutComponent implements OnInit {
         this.isAdminRH=true;
       } 
       if (this.roles.includes('ROLE_USER')) {
-        this.role="Simple utilisateur";
+        this.role="Candidat";
         this.isUser=true;
       } 
       this.username = user.username;

@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Modifier les informations sur ce formulaire</h1>
+<mat-dialog-content class="mat-typography" style="overflow: hidden;height: 400px;">
+       <form [formGroup]="updateFormulaireForm" (submit)="submit()">
+        <p><strong>Étape 1:</strong> Modifiez le titre de votre formulaire</p>
+
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label> Titre du formulaire</mat-label>
+          <input matInput type="text" formControlName="titre" placeholder="Entrez un titre" />
+        </mat-form-field>
+
+        <p><strong>Étape 2:</strong> Modifier quel poste lier à votre formulaire</p>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Postes</mat-label>
+            <mat-select formControlName="selectPoste" required>
+              <mat-option value="0" disabled>Choisissez un poste</mat-option>
+              <mat-option *ngFor="let p of postes" [value]="p.id">{{p.nom}} </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        
+
+        <mat-dialog-actions >
+          <button mat-raised-button color="primary" style="width: 100%;" [disabled]="updateFormulaireForm.invalid" type="submit">Confirmer</button>
+
+          <!-- <button mat-stroked-button [mat-dialog-close]="true" >Terminer</button> -->
+        </mat-dialog-actions>
+
+       </form>
+
+</mat-dialog-content>
+

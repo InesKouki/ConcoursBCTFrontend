@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 import { IsAdminGuard } from '../_guard/is-admin-guard';
-import { CommonLayoutComponent } from './common-layout.component';
-
 
 export const commonLayoutRoutes: Routes = [
   
@@ -32,6 +30,13 @@ export const commonLayoutRoutes: Routes = [
         canActivate:[IsAdminGuard],
         loadChildren: () => import(`../questions/questions.module`)
           .then(m => m.QuestionsModule)
+      },
+
+      {
+        path: 'formulaires',
+        canActivate:[IsAdminGuard],
+        loadChildren: () => import(`../formulaires/formulaires.module`)
+          .then(m => m.FormulairesModule)
       },
 
       {

@@ -69,3 +69,12 @@ justify-content: flex-end;
   margin-left: auto;
   margin-right: auto;
 }
+
+.twocards{
+  display: flex;
+}
+  .twocards .mat-card{
+    width: 35%;
+  
+    
+  }
