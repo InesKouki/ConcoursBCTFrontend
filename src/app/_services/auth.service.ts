@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 import { TokenStorageService } from './token-storage.service';
 
 const AUTH_API_URL=`${environment.apiBaseUrl}/auth/`;
-const USER_API_URL=`${environment.apiBaseUrl}/user/`;
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
