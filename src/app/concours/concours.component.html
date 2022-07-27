@@ -78,7 +78,7 @@
 
               <mat-form-field appearance="fill">
                 <mat-label>Poste</mat-label>
-                <mat-select formControlName="selectPoste" required>
+                <mat-select formControlName="selectPoste" multiple required>
                   <mat-option value="0" disabled>Choisissez un poste</mat-option>
                   <mat-option *ngFor="let p of Postes" [value]="p.id">{{p.nom}}</mat-option>
                 </mat-select>
@@ -88,40 +88,6 @@
              </form>
 
        </mat-expansion-panel> 
-
-      <!-- <mat-expansion-panel style="margin-top: 15px;" [expanded]="step === 3" (opened)="setStep(3)">
-        <mat-expansion-panel-header>
-           <mat-panel-title>
-            <mat-icon color="primary">list_alt</mat-icon>
-            &nbsp;
-            Lier un formulaire à un concours
-           </mat-panel-title>
-         </mat-expansion-panel-header>
-           <p><strong>Étape 1 :</strong>Choisir un concours</p>
-             <form [formGroup]="linkForm" (submit)="submitLink()" #formDirective4="ngForm">
-
-              <mat-form-field appearance="fill">
-                <mat-label>Concours</mat-label>
-                <mat-select formControlName="selectConcours" (selectionChange)="onConcoursChange2()" required>
-                  <mat-option value="0" disabled>Choisissez un concours</mat-option>
-                  <mat-option *ngFor="let c of concours" [value]="c.id">{{c.titre}} </mat-option>
-                </mat-select>
-              </mat-form-field>
-
-              <p style="margin-top: 5px"><strong>Étape 2 :</strong> Choisir quelle formulaire à lier avec le concours</p>
-
-              <mat-form-field appearance="fill">
-                <mat-label>Formulaire</mat-label>
-                <mat-select formControlName="selectInstance" required>
-                  <mat-option value="0" disabled>Choisissez un formulaire</mat-option>
-                  <mat-option *ngFor="let f of formulaires" [value]="f.id">{{f.libelle}}</mat-option>
-                </mat-select>
-              </mat-form-field>
-
-               <button mat-raised-button color="primary" type="submit" [disabled]="linkForm.invalid" style="margin-top: 5px;">Confirmer</button>
-             </form>
-
-       </mat-expansion-panel>   -->
     </mat-accordion>
 
   </div>

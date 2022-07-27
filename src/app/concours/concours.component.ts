@@ -145,9 +145,9 @@ export class ConcoursComponent implements OnInit {
       return this.assignToConcoursForm.get('selectConcours').value;
     }
   
-    onConcoursChange() {
-      this.getNonPostes(this.getConcoursInForm);
-    }
+    // onConcoursChange() {
+    //   this.getNonPostes(this.getConcoursInForm);
+    // }
 
     submit() {
       if (!this.newForm.valid) {
@@ -236,7 +236,6 @@ export class ConcoursComponent implements OnInit {
     unassign(id: number,idP: number) {
       this.ConcoursService.unassign(id,idP).subscribe(data => {
       this.getConcours();
-      //this.getPostes();
       
       })
     }

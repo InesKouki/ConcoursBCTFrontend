@@ -72,7 +72,7 @@
 
           <mat-form-field appearance="fill">
             <mat-label>Questions</mat-label>
-            <mat-select formControlName="selectQuestions" required multiple  >
+            <mat-select formControlName="selectQuestions" (selectionChange)="onQuestionsChange()" required multiple  >
               <mat-option value="0" disabled>Choisissez une question</mat-option>
               <mat-option *ngFor="let q of questions" [value]="q.id">{{q.libelle}}</mat-option>
             </mat-select>
