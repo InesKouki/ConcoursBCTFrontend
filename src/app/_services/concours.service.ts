@@ -48,8 +48,8 @@ export class ConcoursService {
     return this.http.put(API_URL + 'update',{id,titre,dateDebut,dateFin,description},httpOptions);
   }
   
-  getNonPostes(id:number): Observable<any[]> {
-    return this.http.get<any[]>(API_URL+'postes/'+id);
+  getNonPostesDuConcours(id:number): Observable<any[]> {
+    return this.http.get<any[]>(API_URL+'postesNonDuConcours/'+id);
   }
 
   getConcoursDetails(id:any): Observable<any[]> {

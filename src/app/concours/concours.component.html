@@ -68,7 +68,7 @@
 
               <mat-form-field appearance="fill">
                 <mat-label>Concours</mat-label>
-                <mat-select formControlName="selectConcours" required>
+                <mat-select formControlName="selectConcours"  (selectionChange)="onConcoursChange()" required>
                   <mat-option value="0" disabled>Choisissez un concours</mat-option>
                   <mat-option *ngFor="let c of concours" [value]="c.id">{{c.titre}} </mat-option>
                 </mat-select>
@@ -80,7 +80,7 @@
                 <mat-label>Poste</mat-label>
                 <mat-select formControlName="selectPoste" multiple required>
                   <mat-option value="0" disabled>Choisissez un poste</mat-option>
-                  <mat-option *ngFor="let p of Postes" [value]="p.id">{{p.nom}}</mat-option>
+                  <mat-option *ngFor="let p of nonPostes" [value]="p.id">{{p.nom}}</mat-option>
                 </mat-select>
               </mat-form-field>
 

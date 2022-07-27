@@ -14,6 +14,7 @@ const httpOptions = {
 })
 export class FormulairesService {
 
+
   constructor(private http: HttpClient) { }
   getFormulairesList(): Observable<any[]> {
     return this.http.get<any[]>(API_URL+'all');
@@ -51,6 +52,8 @@ export class FormulairesService {
     return this.http.get<any[]>(API_URL+'poste/'+id);
   }
 
-  
+  getQuestionsNotInForm(id):Observable<any[]> {
+    return this.http.get<any[]>(API_URL+'questsNotInForm/'+id);
+  }
 
 }

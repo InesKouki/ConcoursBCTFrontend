@@ -136,7 +136,7 @@ export class ConcoursComponent implements OnInit {
     }
 
     getNonPostes(id) {
-      this.ConcoursService.getNonPostes(id).subscribe(data=>{
+      this.ConcoursService.getNonPostesDuConcours(id).subscribe(data=>{
         this.nonPostes=data;
       })
     }
@@ -145,9 +145,9 @@ export class ConcoursComponent implements OnInit {
       return this.assignToConcoursForm.get('selectConcours').value;
     }
   
-    // onConcoursChange() {
-    //   this.getNonPostes(this.getConcoursInForm);
-    // }
+    onConcoursChange() {
+      this.getNonPostes(this.getConcoursInForm);
+    }
 
     submit() {
       if (!this.newForm.valid) {

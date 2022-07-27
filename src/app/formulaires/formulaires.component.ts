@@ -28,7 +28,7 @@ export class FormulairesComponent implements OnInit {
   formulaireSearch:any[];
   postes:any[];
   questions:any[];
-  nonQuestions:any[];
+  nonQuests:any[];
 
   currentFormulaire = null;
   currentIndex = -1;
@@ -130,10 +130,6 @@ export class FormulairesComponent implements OnInit {
       this.QuestionsService.getQuestionsList().subscribe(data => {
         this.questions = data;
       });
-      }
-
-    get getFormulaireInForm() {
-      return this.assignToFormulaireForm.get('selectFormulaire').value;
     }
 
 
@@ -155,7 +151,21 @@ export class FormulairesComponent implements OnInit {
     }
     }
 
-    
+    onQuestionsChange() {
+      this.getQuestionsNotInForm(this.getFormulaireInForm);
+    }
+
+    getQuestionsNotInForm(id) {
+      this.FormulairesService.getQuestionsNotInForm(id).subscribe(data=>{
+        this.nonQuests=data;
+      })
+    }
+
+    get getFormulaireInForm() {
+      return this.assignToFormulaireForm.get('selectFormulaire').value;
+    }
+
+
 
     submitAssignToFormulaire() {
       if (!this.assignToFormulaireForm.valid) {

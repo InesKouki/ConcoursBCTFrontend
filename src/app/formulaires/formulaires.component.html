@@ -62,7 +62,7 @@
 
           <mat-form-field appearance="fill">
             <mat-label>Formulaire</mat-label>
-            <mat-select formControlName="selectFormulaire" required>
+            <mat-select formControlName="selectFormulaire" (selectionChange)="onQuestionsChange()" required>
               <mat-option value="0" disabled>Choisissez un formulaire</mat-option>
               <mat-option *ngFor="let f of formulaires" [value]="f.id">{{f.titre}} </mat-option>
             </mat-select>
@@ -72,14 +72,14 @@
 
           <mat-form-field appearance="fill">
             <mat-label>Questions</mat-label>
-            <mat-select formControlName="selectQuestions" (selectionChange)="onQuestionsChange()" required multiple  >
+            <mat-select formControlName="selectQuestions"  required multiple  >
               <mat-option value="0" disabled>Choisissez une question</mat-option>
-              <mat-option *ngFor="let q of questions" [value]="q.id">{{q.libelle}}</mat-option>
+              <mat-option *ngFor="let q of nonQuests" [value]="q.id">{{q.libelle}}</mat-option>
             </mat-select>
           </mat-form-field>
 
            <button mat-raised-button color="primary" type="submit" [disabled]="assignToFormulaireForm.invalid" style="margin-top: 5px;">Confirmer</button>
-           {{assignToFormulaireForm.value.selectQuestions}}
+         
          </form>
 
    </mat-expansion-panel> 

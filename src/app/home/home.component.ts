@@ -63,11 +63,11 @@ getConcours() {
     });
 }
 
-getPostes(concourId:number) {
-  this.ConcoursService.getNonPostes(concourId).subscribe(data => {
-    this.postes = data;
-  });
-  }
+// getPostes(concourId:number) {
+//   this.ConcoursService.getNonPostes(concourId).subscribe(data => {
+//     this.postes = data;
+//   });
+//   }
 
 refresh(): void {
   window.location.reload();
