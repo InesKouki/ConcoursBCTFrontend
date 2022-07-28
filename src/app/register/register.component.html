@@ -57,7 +57,7 @@
             
               <mat-label> CIN </mat-label>
               <mat-icon matPrefix color="primary" class="form_icon">recent_actors</mat-icon>
-              <input matInput formControlName="CIN" required />
+              <input matInput formControlName="cin" required />
               <mat-error *ngIf="registerForm.controls.email.touched && registerForm.controls.email.invalid">
                 <span *ngIf="registerForm.controls.email.errors.required">Ce champ est obligatoire.</span>
                 <span *ngIf="registerForm.controls.email.errors.pattern">Il faut entrer une carte d'identité valide </span>

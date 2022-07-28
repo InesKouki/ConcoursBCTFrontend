@@ -17,6 +17,13 @@ export const commonLayoutRoutes: Routes = [
         loadChildren: () => import(`../concours/concours.module`)
           .then(m => m.ConcoursModule)
       },
+      {
+        path: 'concours/:id',
+        loadChildren: () =>
+          import('../concours-details/concours-details.module').then(
+            (mod) => mod.ConcoursDetailsModule
+          ),
+      },
 
       {
         path: 'postes',

@@ -56,6 +56,9 @@ export class ConcoursService {
     return this.http.get<any[]>(API_URL+id);
   }
 
+  getConcoursActive(): Observable<any[]> {
+    return this.http.get<any[]>(API_URL+'coucoursActive');
+  }
   
 
 

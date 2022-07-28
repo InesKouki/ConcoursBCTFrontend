@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit,AfterViewInit {
   isUser=false;
   concours:any[];
   postes:any[];
-  dataSource: MatTableDataSource<any>;
   
   constructor(private userService: UserService,
     private ConcoursService: ConcoursService,
@@ -54,11 +53,8 @@ redirect() {
 }
 
 getConcours() {
-  this.ConcoursService.getConcoursList().subscribe((data: any) => {
+  this.ConcoursService.getConcoursActive().subscribe((data: any) => {
     this.concours=data;
-    this.dataSource.data = data;
-    // this.dataSource.paginator = this.paginator;
-    // this.dataSource.sort = this.sort;
     return data;
     });
 }

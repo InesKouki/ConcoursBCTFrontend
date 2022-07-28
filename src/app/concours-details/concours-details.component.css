@@ -1,0 +1,46 @@
+.center {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 40%;
+    display: block;
+    margin-top: 15px;
+}
+
+@media (max-width: 600px) {
+  .mat-form-field {
+    font-size: 14px;
+    width: 70%;
+    display: block;
+    margin-top: 15px;
+}
+}
+
+.banner-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("src/assets/bctback.jpg");
+    height: 250px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+
+  
+.banner-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+
+  .example-stepper {
+    margin-top: 8px;
+  }
+  
+ 

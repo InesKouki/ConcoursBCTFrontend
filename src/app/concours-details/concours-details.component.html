@@ -1,0 +1,66 @@
+<div class="banner-image" #myDiv>
+</div>
+<br><br><br>
+<div class="container">
+
+    <!-- <button mat-raised-button (click)="isOptional = !isOptional">
+        {{!isOptional ? 'Enable optional steps' : 'Disable optional steps'}}
+      </button> -->
+      
+      <mat-stepper linear #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Choisir un poste</ng-template>
+            <p>Choisir le poste sur lequel vous souhaitez postuler </p>
+
+            <mat-radio-group class="radio-group" formControlName="postes">
+                <mat-radio-button color="primary" class="radio-button" *ngFor="let p of postes" [value]="p.id">
+                  {{ p.nom }} - {{p.description}}
+                </mat-radio-button>
+            </mat-radio-group>
+
+            <div>
+              <button mat-button matStepperNext [disabled]="firstFormGroup.invalid" (click)="loadFormulaire()">Suivant</button>
+            </div>
+          </form>
+        </mat-step>
+
+
+        <mat-step [stepControl]="secondFormGroup" [optional]="isOptional">
+            <ng-template matStepLabel>Answer this</ng-template>
+            <div *ngFor="let q of formulaire?.questions" style="margin-top: 10px;">
+                <form [formGroup]="secondFormGroup">
+
+                <p>Question : {{q.libelle}}</p>
+
+                <mat-radio-group class="radio-group" formControlName="choix">
+                    <mat-radio-button color="primary" class="radio-button" *ngFor="let c of q.choix" [value]="c.id">
+                      {{ c.libelle }}
+                    </mat-radio-button>
+                </mat-radio-group>
+                <br>
+                __________________ {{ secondFormGroup.value.choix }} abcd ________________
+                <br>
+
+            </form>
+
+            </div>
+
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+
+
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+      </mat-stepper>
+
+</div>

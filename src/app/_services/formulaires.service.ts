@@ -56,4 +56,8 @@ export class FormulairesService {
     return this.http.get<any[]>(API_URL+'questsNotInForm/'+id);
   }
 
+  getFormulaireDuPoste(id):Observable<any[]> {
+    return this.http.get<any[]>(API_URL+'formDuPoste/'+id);
+  }
+
 }

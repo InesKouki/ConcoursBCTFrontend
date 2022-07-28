@@ -5,6 +5,7 @@ import { CommonLayoutComponent } from './common-layout/common-layout.component';
 import { AuthGuard } from './_guard/auth-guard';
 import { ConfirmGuard } from './_guard/confirm-guard';
 
+
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
@@ -43,6 +44,8 @@ const routes: Routes = [
         (mod) => mod.ForgotPasswordModule
       ),
   },
+
+  
  
   {
     path: '**',

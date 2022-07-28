@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
   nomRegx=/^[a-zA-Z]+$/;
+  CINRegx=/^[0-9]+$/;
   errorMessage = '';
   hide = true;
   isLoading=false;
@@ -32,7 +33,7 @@ export class RegisterComponent implements OnInit {
       nom:[null, [Validators.required,Validators.pattern(this.nomRegx)]],
       prenom:[null, [Validators.required,Validators.pattern(this.nomRegx)]],
       dateNaissance:[null, [Validators.required]],
-      CIN:[null, [Validators.required]]
+      cin:[null, [Validators.required,Validators.pattern(this.CINRegx),Validators.maxLength(8),Validators.minLength(8)]]
     });
 
   }
@@ -66,6 +67,8 @@ export class RegisterComponent implements OnInit {
       this.registerForm.value.nom,
       this.registerForm.value.prenom,
       this.registerForm.value.sexe,
+      this.registerForm.value.dateNaissance,
+      this.registerForm.value.cin,
       this.registerForm.value.password,
   
       ).subscribe(

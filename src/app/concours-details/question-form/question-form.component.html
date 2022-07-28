@@ -1,0 +1,14 @@
+<p>question-form debut!</p>
+<form [formGroup]="secondFormGroup">
+    
+
+        <mat-radio-group class="radio-group" formControlName="choix">
+            <mat-radio-button color="primary" class="radio-button" *ngFor="let c of tests" [value]="c">
+              {{ c }}
+            </mat-radio-button>
+        </mat-radio-group>
+
+  </form>
+
+  resultat: {{secondFormGroup.value.choix}}
+  <p>question-form fin!</p>
