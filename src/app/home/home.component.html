@@ -26,34 +26,22 @@
             <div class="row spacerow">
               <div class="col-md-6">
 
-                <!-- <mat-icon >work_outline </mat-icon> -->
+                <mat-icon >work_outline </mat-icon>
                 <h4>
                   
-                   Concours  
+                  {{stats.concoursActive}} Concours totaux
                 </h4>
               </div>
               <div class="col-md-6">
-                <!-- <mat-icon class="green-icon" style="vertical-align: middle; margin-right: 3px" >work_outline</mat-icon> -->
+                <mat-icon class="green-icon" style="vertical-align: middle; margin-right: 3px" >work_outline</mat-icon>
                 <h4>
-                  Concours activé
+                 {{stats.concoursActive}} Concours activés
                 </h4>
               </div>
             </div>
-            <div class="row spacerow">
-              <div class="col-md-6">
-                <h4>
-                  <!-- <mat-icon
-                    color="primary"
-                    style="vertical-align: middle; margin-right: 3px"
-                    >contacts</mat-icon> Utilisateurs -->
-                </h4>
-              </div>
-              <div class="col-md-6">
-                
-              </div>
-            </div>
+          
           </div>
-        <!-- <div
+        <div
             class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-light">
             <div class="row spacerow">
               <div class="col-md-4 user-stats">
@@ -90,7 +78,7 @@
                 </div>
               </div>
             </div>
-        </div> -->
+        </div>
 
 
         <h3>Concours Activés:</h3>
@@ -105,7 +93,7 @@
           <mat-divider inset></mat-divider>
           <mat-card-actions>
            <a  routerLink="/concours/{{c.id }}">En savoir plus</a>
-            <!-- <button mat-button>SHARE</button> -->
+           
           </mat-card-actions>
           
         </mat-card>

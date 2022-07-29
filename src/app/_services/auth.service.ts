@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { TokenStorageService } from './token-storage.service';
 
 const AUTH_API_URL=`${environment.apiBaseUrl}/auth/`;
-
+const USER_API_URL=`${environment.apiBaseUrl}/user/`;
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -52,5 +52,17 @@ export class AuthService {
 
   editpw(pw: any,id:any,password:string): Observable<any> {
     return this.http.put(AUTH_API_URL + 'editpw/'+ pw,{id,password},httpOptions);
+  }
+
+  getStatistics(): Observable<any[]> {
+    return this.http.get<any[]>(USER_API_URL+'home').pipe(
+      catchError((err) => {
+        if (err.status ===401) {
+          this.tokenStorageService.signOut();
+          this.router.navigate(['/login']);
+        }
+        return throwError(err);
+      })
+    ); 
   }
 }

@@ -10,6 +10,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card'
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatProgressSpinnerModule,
     MatListModule,
     MatCardModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    NgChartsModule
 
   ]
 })
